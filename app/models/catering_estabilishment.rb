@@ -1,5 +1,6 @@
 class CateringEstabilishment < ApplicationRecord
   belongs_to :category
+  has_many :comments
   has_many_attached :pictures
   validates :title, presence: true
   validates :description, presence: true

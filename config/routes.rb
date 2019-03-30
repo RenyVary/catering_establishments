@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'comments/create'
   root 'catering_estabilishments#index'
   devise_for :users
   
