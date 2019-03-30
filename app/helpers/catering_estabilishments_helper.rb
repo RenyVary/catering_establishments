@@ -1,0 +1,2 @@
+module CateringEstabilishmentsHelper
+end
