@@ -23,7 +23,7 @@
           <% else %>
             <td> <% nil %> </td>
           <% end %>
-          <td><%= estabilishment.title %></td>
+          <td><%= link_to "#{estabilishment.title}", catering_estabilishment_path(estabilishment.id) %></td>
           <td>
             <%= link_to 'Delete', estabilishment, method: :delete, data: {confirm: 'Are you sure?'} %>
           </td>
@@ -31,5 +31,5 @@
         <% end %>
     </table>
   <% end %>
-    <%= link_to 'Create new establishment', catering_estabilishments_new_path %>
+    <%= link_to 'Create new establishment', new_catering_estabilishment_path %>
 </div>

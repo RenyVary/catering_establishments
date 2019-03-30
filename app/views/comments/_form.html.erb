@@ -1,0 +1,11 @@
+<%= form_with scope: :comment, url: [@estabilishment, @estabilishment.comments.build], local: true do |f| %>
+    <div>
+      Author: <%= f.text_field :author %>
+    </div>
+    <div>
+      Text: <%= f.text_area :body %>
+    </div>
+
+    <%= f.submit %>
+<% end %>
+

@@ -1,16 +1,11 @@
 Rails.application.routes.draw do
-  get 'comments/create'
   root 'catering_estabilishments#index'
   devise_for :users
+  resources :catering_estabilishments do
+    resources :comments, module: :catering_estabilishments
+  end
   
-  get 'catering_estabilishments/new'
-  get 'catering_estabilishments/edit'
   get 'categories/new'
   post 'categories/create'
-  post 'catering_estabilishments/create'
-  get 'categories/index'
-  delete 'catering_estabilishments/:id' => 'catering_estabilishments#destroy', as: 'catering_estabilishment'
-
-  
-  
+  get 'categories/index'  
 end

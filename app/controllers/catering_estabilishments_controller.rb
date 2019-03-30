@@ -7,6 +7,10 @@ class CateringEstabilishmentsController < ApplicationController
     @estabilishment = CateringEstabilishment.new
   end
 
+  def show
+    @estabilishment = CateringEstabilishment.find(params[:id])
+  end
+  
   def create
     @estabilishment = CateringEstabilishment.new(catering_estabilishment_params)
     if  @estabilishment.save
@@ -23,6 +27,6 @@ class CateringEstabilishmentsController < ApplicationController
   end
 
   def catering_estabilishment_params
-    params.require(:catering_estabilishment).permit(:title, :description, :category_id, pictures: [])
+    params.require(:catering_estabilishment).permit(:title, :description, :category_id, :comment_id, pictures: [])
   end
 end

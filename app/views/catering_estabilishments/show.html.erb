@@ -1,0 +1,33 @@
+<% if @estabilishment.pictures != nil %>
+    <% (0...@estabilishment.pictures.count).each do |picture| %>
+        <td style="width:300px; height=300px;"> 
+        <%= image_tag(@estabilishment.pictures[picture], style:'width:100%; height: auto') %> 
+        </td>
+    <%end %>
+<% else %>
+    <td> <% nil %> </td>
+<% end %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @estabilishment.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @estabilishment.description %>
+</p>
+
+<%= link_to 'Edit', edit_catering_estabilishment_path(@estabilishment) %> |
+<%= link_to 'Back', root_path %>
+
+<h2><%= link_to 'Comments', '#', id: 'comments-link' %></h2>
+<div id="comment-section">
+  <ol id="comments">
+    <%= render @estabilishment.comments %>
+  </ol>
+
+  <h3>Add a comment:</h3>
+  <%= render 'comments/form' %>
+</div>
+
