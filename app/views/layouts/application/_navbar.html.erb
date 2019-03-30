@@ -4,21 +4,15 @@
           <span class="sr-only">Toggle navigation</span>
           &#x2630;
         </button>
-
-        <%= link_to 'Shop', root_path, class: 'navbar-brand' %>
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="nav-item">
-                  <div class="">
-                    <%= link_to('#', class: 'text-primary') do %> 
-                      <p class="nav_link m-0"><%= show_svg('union.svg') %> <span class="none-mobile">Назад</span>  </p>
+                    <%= link_to('#', class: 'nav-link') do %> 
+                      <p><%= show_svg('union.svg')%> Back </p>
                     <% end %>
-                  </div>
-                </li>
-                <li class="nav-item"><a href="#" class="nav-link">Contacts</a>
                 </li>
             </ul>
+            <%= link_to 'Home', root_path, class: 'navbar-brand' %>
             <div class="navbar-nav ml-auto">
               <div class="navbar-nav ml-auto">
                   <% if user_signed_in? %>

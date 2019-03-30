@@ -1,2 +1,38 @@
-<h1>CateringEstabilishments#new</h1>
-<p>Find me in app/views/catering_estabilishments/new.html.erb</p>
+<h1>New estabilishment</h1>
+
+<%= form_with  scope: :catering_estabilishment, url: catering_estabilishments_create_path, local: true do |f| %>
+	<% if @estabilishment.errors.any? %>
+    	<div class="errors">
+      	Total errors: <%= @estabilishment.errors.count %>
+      	<ul>
+        	<% @estabilishment.errors.full_messages.each do |message| %>
+            	<li><%= message %></li>
+        	<% end %>
+      	</ul>
+    	</div>
+	<% end %>
+
+	<div>
+  	  <%= f.label :title %>
+  	  <%= f.text_field :title %>
+	</div>
+
+    <div>
+      <%= f.label :category %><br />
+      <%= f.collection_select :category_id, Category.all, :id, :title %>
+    </div>
+
+
+    <div>
+  	<%= f.label :description %>
+  	<%= f.text_field :description %>
+	</div>
+
+    <%= f.label :pictures %>
+    <%= f.file_field :pictures, multiple: true %>
+
+
+	<div>
+  	<%= f.submit %>
+	</div>
+<% end %>
